@@ -1,0 +1,14 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "primalwinter:winterize_everything",
+  "condition": {
+    "type": "forge:inverted",
+    "inverse": {
+      "type": "forge:matches_category",
+      "categories": [
+        "nether",
+        "the_end"
+      ]
+    }
+  }
+}

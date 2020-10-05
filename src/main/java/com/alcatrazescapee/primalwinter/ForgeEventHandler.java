@@ -6,28 +6,14 @@
 package com.alcatrazescapee.primalwinter;
 
 import net.minecraft.command.Commands;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.GameRules;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
-import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import com.alcatrazescapee.primalwinter.mixin.world.biome.BiomeAmbienceAccess;
-import com.alcatrazescapee.primalwinter.mixin.world.biome.BiomeClimateAccess;
-import com.alcatrazescapee.primalwinter.mixin.world.biome.BiomeGenerationSettingsBuilderAccess;
-import com.alcatrazescapee.primalwinter.world.ModConfiguredFeatures;
 
 import static com.alcatrazescapee.primalwinter.PrimalWinter.MOD_ID;
 
@@ -60,9 +46,13 @@ public final class ForgeEventHandler
         }
     }
 
+    /**
+     * {@link com.alcatrazescapee.primalwinter.experimental.ModBiomeModifiers}
+     */
     @SubscribeEvent
     public static void onBiomeLoading(BiomeLoadingEvent event)
     {
+        /*
         if (Config.COMMON.nonWinterBiomes.get().stream().anyMatch(id -> id.equals(event.getName() == null ? "" : event.getName().toString())))
         {
             // This requires a mixin because forge hasn't exposed any mutators, a constructor, or a builder...
@@ -93,5 +83,6 @@ public final class ForgeEventHandler
             // Removals need to access the underlying list for now
             ((BiomeGenerationSettingsBuilderAccess) generationSettingsBuilder).getFeatures().forEach(list -> list.removeIf(feature -> feature.get() == Features.FREEZE_TOP_LAYER));
         }
+        */
     }
 }

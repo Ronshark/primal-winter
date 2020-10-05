@@ -120,12 +120,27 @@ def main():
     rm.block_tag('animal_spawns_on', 'minecraft:grass', 'minecraft:sand', 'minecraft:snow_block', 'minecraft:snow', 'primalwinter:snowy_dirt', 'primalwinter:snowy_sand')
     rm.block_tag('turtle_spawns_on', 'minecraft:sand', 'primalwinter:snowy_sand')
 
-    configured_feature(rm, 'improved_ice_spikes', config={
-
+    rm.data(('biome_modifiers', 'winterize_everything'), {
+        'type': 'primalwinter:winterize_everything',
+        'condition': {
+            'type': 'forge:inverted',
+            'inverse': {
+                'type': 'forge:matches_category',
+                'categories': [
+                    'nether',
+                    'the_end'
+                ]
+            }
+        }
     })
-    configured_feature(rm, 'improved_ice_patch')
 
     rm.flush()
+
+    forge = ResourceManager('forge', resource_path)
+    forge.data(('biome_modifiers', 'global_biome_modifiers'), {
+        'replace': False,
+        'entries': ['primalwinter:winterize_everything']
+    })
 
 
 def lang(key: str, *args) -> str:

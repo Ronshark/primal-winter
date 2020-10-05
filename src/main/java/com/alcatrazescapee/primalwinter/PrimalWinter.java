@@ -17,6 +17,7 @@ import com.alcatrazescapee.primalwinter.client.ModParticleTypes;
 import com.alcatrazescapee.primalwinter.client.ModSoundEvents;
 import com.alcatrazescapee.primalwinter.common.ModBlocks;
 import com.alcatrazescapee.primalwinter.common.ModItems;
+import com.alcatrazescapee.primalwinter.experimental.ModBiomeModifiers;
 import com.alcatrazescapee.primalwinter.world.ModConfiguredFeatures;
 import com.alcatrazescapee.primalwinter.world.ModFeatures;
 
@@ -47,6 +48,8 @@ public final class PrimalWinter
 
         ModSoundEvents.SOUND_EVENTS.register(modEventBus);
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus);
+
+        ModBiomeModifiers.MODIFIERS.register(modEventBus);
     }
 
     @SubscribeEvent
